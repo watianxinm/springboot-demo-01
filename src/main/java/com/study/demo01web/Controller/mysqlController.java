@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.sql.DataSource;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -50,5 +52,13 @@ public class mysqlController {
         String sql = "delete from department where id =" +id;
         jdbcTemplate.update(sql);
         return "delete-ok";
+    }
+
+    @Autowired
+    DataSource dataSource;
+
+    @RequestMapping("test")
+    public void contextLoads() throws SQLException {
+        System.out.println(dataSource.getClass());
     }
 }
