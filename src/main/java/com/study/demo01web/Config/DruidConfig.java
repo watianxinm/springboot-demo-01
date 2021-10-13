@@ -34,7 +34,7 @@ public class DruidConfig {
         initParameters.put("loginPassword","123456");
 
         //设置允许谁可以访问
-        initParameters.put("allow","127.1.1.0");
+        initParameters.put("allow","");
 
         //禁止谁能访问 initParameters.put("kuangshen","192.168.11.123");
 
