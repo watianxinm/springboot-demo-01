@@ -49,7 +49,7 @@ public class DruidConfig {
 //        bean.setFilter(new WebStatFilter());
         HashMap<String, String> initParameters = new HashMap<>();
         //不过滤的路径
-        initParameters.put("exclusions","*.js, *.css, druid/*");
+        initParameters.put("exclusions","*.js, *.css, /druid/*");
         bean.setInitParameters(initParameters);
         return bean;
     }
