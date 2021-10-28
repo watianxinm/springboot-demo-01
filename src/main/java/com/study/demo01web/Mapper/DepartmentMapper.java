@@ -14,9 +14,9 @@ public interface DepartmentMapper {
     //2.根据id查询部门信息
     Department queryDeptById(Integer id);
     //3.新增部门信息
-    int addDept(Department dept);
+    String addDept(Department dept);
     //4.修改部门信息
-    int updateDept(Department dept);
+    String updateDept(Department dept);
     //5.删除部门信息
-    int deleteDept(Integer id);
+    String deleteDept(Integer id);
 }

@@ -1,9 +1,8 @@
 package com.study.demo01web.Controller;
 
-import com.study.demo01web.Dao.DepartmentDao;
-import com.study.demo01web.Dao.EmployeeDao;
 import com.study.demo01web.Pojo.Department;
 import com.study.demo01web.Pojo.Employee;
+import com.study.demo01web.Service.DepartmentService;
 import com.study.demo01web.Service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,7 +21,7 @@ public class EmpsController {
     @Autowired
     EmployeeService employeeService;
     @Autowired
-    DepartmentDao departmentDao;
+    DepartmentService departmentService;
 
     @RequestMapping("/emps")
     public String getList(Model model){
@@ -37,8 +36,7 @@ public class EmpsController {
     @GetMapping("/emp")
     public String addPages(Model model){
         //查出所有员工的部门信息
-        //TODO
-        Collection<Department> departments = departmentDao.getDepartments();
+        List<Department> departments = departmentService.queryDepts();
         model.addAttribute("depts",departments);
         return "addEmps";
     }
@@ -57,8 +55,7 @@ public class EmpsController {
         Employee employee = employeeService.queryEmpById(id);
         model.addAttribute("employ", employee);
         //查询全部的部门名称
-        //TODO
-        Collection<Department> departments = departmentDao.getDepartments();
+        List<Department> departments = departmentService.queryDepts();
         model.addAttribute("departments", departments);
         return "updateEmps";
     }

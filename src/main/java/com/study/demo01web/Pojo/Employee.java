@@ -17,12 +17,12 @@ public class Employee {
     private Department department;
     private Date birth;
 
-    public Employee(Integer id, String eName, String email, Integer gender, Department department) {
+    public Employee(Integer id, String eName, String email, Integer gender, Department department_id) {
         this.id = id;
         this.eName = eName;
         this.email = email;
         this.gender = gender;
-        this.department = department;
+        this.department_id = department.getId();
         this.birth = new Date();
     }
 

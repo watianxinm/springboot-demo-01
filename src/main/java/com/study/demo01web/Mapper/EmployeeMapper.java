@@ -12,7 +12,7 @@ import java.util.List;
 public interface EmployeeMapper {
     //1.查询全部员工信息
     List<Employee> queryEmps();
-    //2.根据id查询员工信息
+    // 2.根据id查询员工信息
     Employee queryEmpById(Integer id);
     //3.新增员工信息
     int addEmp(Employee emp);

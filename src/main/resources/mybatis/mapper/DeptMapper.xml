@@ -5,6 +5,15 @@
         select * from department
     </select>
     <select id="queryDeptById" resultType="Department">
-
+        select * from department where id = #{id}
     </select>
+    <insert id="addDept" parameterType="Department">
+        insert into department (departmentName) values (#{departmentName})
+    </insert>
+    <update id="updateDept" parameterType="Department">
+        update department set departmentName = #{departmentName} where id = #{id}
+    </update>
+    <delete id="deleteDept" parameterType="int">
+        delete from department where id = #{id}
+    </delete>
 </mapper>
