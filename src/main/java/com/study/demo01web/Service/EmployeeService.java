@@ -13,7 +13,9 @@ public class EmployeeService {
     EmployeeMapper employeeMapper;
     //1.查询全部员工信息
     public List<Employee> queryEmps(){
-        return employeeMapper.queryEmps();
+        List<Employee> employees = employeeMapper.queryEmps();
+        return employees;
+//        return employeeMapper.queryEmps();
     }
     //2.根据id查询员工信息
     public  Employee queryEmpById(Integer id){

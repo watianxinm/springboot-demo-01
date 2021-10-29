@@ -7,7 +7,7 @@ import java.util.Date;
 
 //员工表
 @Data
-@NoArgsConstructor
+//@NoArgsConstructor
 public class Employee {
 
     private Integer id;
@@ -17,12 +17,12 @@ public class Employee {
     private Department department;
     private Date birth;
 
-    public Employee(Integer id, String eName, String email, Integer gender, Department department_id) {
+    public Employee(Integer id, String eName, String email, Integer gender, Department department) {
         this.id = id;
         this.eName = eName;
         this.email = email;
         this.gender = gender;
-        this.department_id = department.getId();
+        this.department = department;
         this.birth = new Date();
     }
 
