@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 //部门表
 @Data
 @AllArgsConstructor
-//@NoArgsConstructor
+@NoArgsConstructor
 public class Department {
 
     private Integer id;

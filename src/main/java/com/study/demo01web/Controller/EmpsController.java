@@ -26,7 +26,7 @@ public class EmpsController {
     public String getList(Model model){
         //1.查询所有员工列表
         List<Employee> employees = employeeService.queryEmps();
-        //2.将员工列表返回到前端页面显示
+        //3.将员工列表返回到前端页面显示
         model.addAttribute("emps" ,employees);
         return "dashboard";
     }

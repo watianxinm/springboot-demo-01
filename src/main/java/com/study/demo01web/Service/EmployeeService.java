@@ -1,16 +1,20 @@
 package com.study.demo01web.Service;
 
 import com.study.demo01web.Mapper.EmployeeMapper;
+import com.study.demo01web.Pojo.Department;
 import com.study.demo01web.Pojo.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service
 public class EmployeeService {
     @Autowired
     EmployeeMapper employeeMapper;
+    @Autowired
+    DepartmentService departmentService;
     //1.查询全部员工信息
     public List<Employee> queryEmps(){
         List<Employee> employees = employeeMapper.queryEmps();
