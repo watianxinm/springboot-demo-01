@@ -2,19 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.study.demo01web.Mapper.EmployeeMapper">
 
-    <!--<resultMap id="insertEmps" type="Employee">-->
-        <!--<id property="id" column="id"></id>-->
-        <!--<result property="eName" column="eName"></result>-->
-        <!--<result property="gender" column="gender"></result>-->
-        <!--<result property="deptId" column="department_id"></result>-->
-        <!--<result property="email" column="email"></result>-->
-        <!--&lt;!&ndash;<result property="birth" column="birth"></result>&ndash;&gt;-->
-    <!--</resultMap>-->
+    <resultMap id="updateEmps" type="com.study.demo01web.Pojo.Employee">
+        <id property="id" column="id"></id>
+        <result property="eName" column="eName"></result>
+        <result property="gender" column="gender"></result>
+        <result property="deptId" column="department_id"></result>
+        <result property="email" column="email"></result>
+        <!--<result property="birth" column="birth"></result>-->
+    </resultMap>
 
     <select id="queryEmps" resultType="Employee">
       SELECT e.id,e.eName,e.gender,d.departmentName,e.email,e.birth FROM employee e,department d WHERE e.department_id = d.id
     </select>
-    <select id="queryEmpById" resultType="Employee">
+    <select id="queryEmpById" resultMap="updateEmps">
       select * from employee where id = #{id}
     </select>
     <insert id="addEmp" parameterType="Employee">

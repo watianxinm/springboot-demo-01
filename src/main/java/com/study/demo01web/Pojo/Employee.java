@@ -14,15 +14,17 @@ public class Employee {
     private String eName;
     private String email;
     private Integer gender; //0:女  1:男
+    private Department dept;
     private Integer deptId;
     private String departmentName;
     private Date birth;
 
-    public Employee(Integer id, String eName, String email, Integer gender, Integer deptId, String departmentName) {
+    public Employee(Integer id, String eName, String email, Integer gender, Department dept, Integer deptId, String departmentName) {
         this.id = id;
         this.eName = eName;
         this.email = email;
         this.gender = gender;
+        this.dept = dept;
         this.deptId = deptId;
         this.departmentName = departmentName;
         this.birth = new Date();
