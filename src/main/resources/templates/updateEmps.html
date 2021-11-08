@@ -134,8 +134,8 @@
                         <div class="form-group">
                             <label class="col-xs-3 control-label">所在部门：</label>
                             <div class="col-xs-8">
-                                <select name="" class="form-control input-sm duiqi">
-                                    <option th:selected="${dept.getDepartmentName()}" th:each="dept:${departments}" th:text="${dept.getDepartmentName()}" th:value="${dept.getId()}"></option>
+                                <select name="deptName" id="deptName" class="form-control input-sm duiqi">
+                                    <option th:selected="${employ.getDeptId() == dept.getId()}" th:each="dept:${departments}" th:text="${dept.getDepartmentName()}" th:value="${dept.getId()}"></option>
                                 </select>
                             </div>
                             <label class="col-xs-3 control-label">出生日期：</label>
