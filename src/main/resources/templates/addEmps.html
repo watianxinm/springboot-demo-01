@@ -135,7 +135,7 @@
                         <div class="form-group">
                             <label class="col-xs-3 control-label">所在部门：</label>
                             <div class="col-xs-8">
-                                <select name="department.id" class="form-control input-sm duiqi">
+                                <select name="deptId" class="form-control input-sm duiqi">
                                     <option th:each="dept:${depts}" th:text="${dept.getDepartmentName()}" th:value="${dept.getId()}"></option>
                                 </select>
                             </div>
@@ -145,7 +145,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-xs btn-xs btn-white" data-dismiss="modal">取 消</button>
+                            <!--<button type="button" onclick="window.location.href='dashboard.html'" class="btn btn-xs btn-xs btn-white">取 消</button>-->
+                            <a class="btn btn-xs btn-xs btn-white" th:href="@{/emps}">取 消</a>
                             <button type="submit" class="btn btn-xs btn-xs btn-green">添 加</button>
                         </div>
                     </form>

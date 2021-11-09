@@ -19,7 +19,7 @@ public class Employee {
     private String departmentName;
     private Date birth;
 
-    public Employee(Integer id, String eName, String email, Integer gender, Department dept, Integer deptId, String departmentName) {
+    public Employee(Integer id, String eName, String email, Integer gender, Department dept, Integer deptId, String departmentName, Date birth) {
         this.id = id;
         this.eName = eName;
         this.email = email;
@@ -27,7 +27,7 @@ public class Employee {
         this.dept = dept;
         this.deptId = deptId;
         this.departmentName = departmentName;
-        this.birth = new Date();
+        this.birth = birth;
     }
 
 }

@@ -134,7 +134,7 @@
                         <div class="form-group">
                             <label class="col-xs-3 control-label">所在部门：</label>
                             <div class="col-xs-8">
-                                <select name="deptName" id="deptName" class="form-control input-sm duiqi">
+                                <select name="deptId" id="deptId" class="form-control input-sm duiqi">
                                     <option th:selected="${employ.getDeptId() == dept.getId()}" th:each="dept:${departments}" th:text="${dept.getDepartmentName()}" th:value="${dept.getId()}"></option>
                                 </select>
                             </div>
@@ -144,7 +144,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-xs btn-xs btn-white" data-dismiss="modal">取 消</button>
+                            <a class="btn btn-xs btn-xs btn-white" th:href="@{/emps}">取 消</a>
                             <button type="submit" class="btn btn-xs btn-xs btn-green">保 存</button>
                         </div>
                     </form>
