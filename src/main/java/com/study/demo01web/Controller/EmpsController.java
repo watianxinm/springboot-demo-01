@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -32,7 +33,7 @@ public class EmpsController {
     }
 
     //跳转到增加员工信息界面
-    @GetMapping("/emp")
+    @GetMapping("/addemp")
     public String addPages(Model model){
         //查出所有员工的部门信息
         List<Department> departments = departmentService.queryDepts();
@@ -43,6 +44,7 @@ public class EmpsController {
     //增加员工信息并跳转到员工信息界面
     @PostMapping("/emp")
     public String addEmps(Employee employee){
+        Date birth = employee.getBirth();
         employeeService.addEmp(employee);
         return "redirect:/emps";
     }
