@@ -1,7 +1,6 @@
 package com.study.demo01web.Config;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.alibaba.druid.support.http.StatViewFilter;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
