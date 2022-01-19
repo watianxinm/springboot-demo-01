@@ -4,13 +4,13 @@
 
     <!--当实体类字段与数据表字段不一致时，可以设置映射关系一一对应-->
     <resultMap id="updateEmps" type="com.study.demo01web.Pojo.Employee">
-        <id property="id" column="id"></id>
-        <result property="eName" column="eName"></result>
-        <result property="gender" column="gender"></result>
+        <id property="id" column="id"/>
+        <result property="eName" column="eName"/>
+        <result property="gender" column="gender"/>
         <!--不一致字段-->
-        <result property="deptId" column="department_id"></result>
-        <result property="email" column="email"></result>
-        <result property="birth" column="birth"></result>
+        <result property="deptId" column="department_id"/>
+        <result property="email" column="email"/>
+        <result property="birth" column="birth"/>
     </resultMap>
 
     <!--返回值类型和参数类型全路径名在properties文件中定义-->
