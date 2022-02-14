@@ -13,7 +13,6 @@ public class MyLocaleResolver implements LocaleResolver {
     public Locale resolveLocale(HttpServletRequest request) {
         //获取链接请求中的语言参数
         String language = request.getParameter("lang");
-        System.out.println(language);
         //如果没有参数就使用默认配置
         Locale defaultLocale = Locale.getDefault();
         //如果请求中携带参数 则用自定义的语言

@@ -16,7 +16,6 @@ public class LoginController {
         //设置登录成功的条件
         if(!StringUtils.isEmpty(username) && ("123456").equals(password)){
             session.setAttribute("userlogin",username);
-//            return "redirect:/main.html";
             return "redirect:/emps";
         }else{
             model.addAttribute("msg", "用户名或密码错误");
