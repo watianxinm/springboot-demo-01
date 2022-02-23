@@ -2,13 +2,11 @@ package com.study.demo01web.Mapper;
 
 import com.study.demo01web.Pojo.Employee;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 //该注解表示这是spring的一个mapper接口  Dao层
 @Mapper
-@Repository
 public interface EmployeeMapper {
     //1.查询全部员工信息
     List<Employee> queryEmps();
