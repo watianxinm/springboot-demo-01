@@ -1,8 +1,10 @@
 package com.study.demo01web.Config;
 
 import com.study.demo01web.Service.MyUserDetailsService;
+import com.study.demo01web.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -11,9 +13,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+@Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    UserService userService;
     @Autowired
     MyUserDetailsService myUserDetailsService;
 
@@ -22,9 +27,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //登录页面允许所有人访问
         //请求授权的规则
         http
-                .authorizeRequests()
-                .antMatchers("/","/login.html").permitAll()
-                .antMatchers("/emps").hasRole("ADMIN");
+                .authorizeRequests() //拦截请求  创建FilterSecurityInterceptor
+                .antMatchers("/","/login.html").permitAll();
+//                .antMatchers("/emps").hasRole("ADMIN");
 
         //没有权限默认会到登录界面
 //        http.formLogin();
@@ -48,7 +53,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //重定义认证规则
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication().withUser("admin").password("123456").roles("ADMIN");
-        auth.userDetailsService(myUserDetailsService);
+        auth.userDetailsService(myUserDetailsService).passwordEncoder(passwordEncoder());
     }
 }
