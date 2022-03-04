@@ -28,11 +28,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //请求授权的规则
         http
                 .authorizeRequests() //拦截请求  创建FilterSecurityInterceptor
-                .antMatchers("/","/login.html").permitAll();
-//                .antMatchers("/emps").hasRole("ADMIN");
-
-        //没有权限默认会到登录界面
-//        http.formLogin();
+                .antMatchers("/","/login.html").permitAll() //访问登录页面不需要权限验证
+                .antMatchers("/emps").hasRole("ADMIN")
+                .and()
+                .formLogin() //没有权限会到默认的登录界面  内部注册UsernamePasswordAuthenticationFilter
+                .loginPage("/login.html") //指定表单登录页面地址
+                .loginProcessingUrl("/user/login") //form登录表单post请求URL提交地址，默认为/login
+//                .successForwardUrl("/emps") //进行路径跳转的方式为转发(forward)
+                .defaultSuccessUrl("/emps") //进行路径跳转的方式为重定向(redirect)
+                .permitAll();
+        http.csrf().disable(); //springsecurity在开启csrf防护的情况下，/logout必须是以POST方法提交，而<a>请求是GET方法，会报404
+        http
+                .logout() //用户退出登录
+                .logoutUrl("/user/logout") //logoutFilter要读取的URL，也就是指定springsecurity拦截的注销url
+                .logoutSuccessUrl("/login.html"); //用户退出后要被重定向的url
     }
 
     //忽略静态资源的拦截

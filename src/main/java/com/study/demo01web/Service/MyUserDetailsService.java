@@ -46,6 +46,7 @@ public class MyUserDetailsService implements UserDetailsService {
         if(!StringUtils.isEmpty(role)){
             //用户所拥有的权限 注意：必须以ROLE_开头
             authorities.add(new SimpleGrantedAuthority("ROLE_"+role.getAuthority()));
+            log.info("========authorities={}",authorities);
         }
 
         //创建用户信息的时候密码需要加密

@@ -59,12 +59,12 @@
     <!-- 左侧菜单栏目块 -->
     <div class="leftMeun" id="leftMeun">
         <div id="logoDiv">
-            <p id="logoP"><img id="logo" alt="NO.1" th:src="@{images/logo.jpg}"><span>NO.1</span></p>
+            <p id="logoP"><img id="logo" alt="NO.1" th:src="@{images/logo2.jpg}"><span>NO.1</span></p>
         </div>
         <div id="personInfor">
             <p id="userName">[[${session.userlogin}]]</p>
             <p>
-                <a th:href="@{/user/logout}">退出登录</a>
+                <a th:href="@{/user/logout}"method="">退出登录</a>
             </p>
         </div>
         <div class="meun-title">账号管理</div>

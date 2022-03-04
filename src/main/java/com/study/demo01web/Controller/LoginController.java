@@ -51,9 +51,9 @@ public class LoginController {
     }
 
     //注销登录
-    @RequestMapping("/user/logout")
-    public String logout(HttpSession session){
-        session.invalidate();
-        return "redirect:/login.html";
-    }
+//    @RequestMapping("/user/logout")
+//    public String logout(HttpSession session){
+//        session.invalidate();
+//        return "redirect:/login.html";
+//    }
 }
