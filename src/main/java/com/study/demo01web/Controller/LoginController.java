@@ -37,6 +37,8 @@ public class LoginController {
         if (user != null) {
             if (passwordEncoder.matches(password,user.getPassword())) {
                 // 用户名和密码都正确
+                session.setAttribute("username",username);
+                session.getAttribute("username");
                 return "redirect:/emps";
             } else {
                 // 用户存在但是输入的密码不正确
