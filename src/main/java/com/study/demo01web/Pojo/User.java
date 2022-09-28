@@ -15,6 +15,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+//@lombok
 public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

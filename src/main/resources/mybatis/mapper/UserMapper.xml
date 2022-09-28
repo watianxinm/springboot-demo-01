@@ -4,4 +4,7 @@
     <select id="findByUsername" resultType="User">
         select * from user where username = #{username}
     </select>
+    <insert id="save" parameterType="User">
+        insert into user values #{user}
+    </insert>
 </mapper>

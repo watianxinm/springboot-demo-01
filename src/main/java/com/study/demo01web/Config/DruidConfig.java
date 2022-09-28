@@ -16,6 +16,7 @@ import java.util.HashMap;
 public class DruidConfig {
 
     //将自定义的数据源配置加入到Spring中
+//    @ConfigurationProperties(prefix = "spring.datasource.druid")
     @ConfigurationProperties(prefix = "spring.datasource")
     @Bean
     public DataSource druidDatasource(){

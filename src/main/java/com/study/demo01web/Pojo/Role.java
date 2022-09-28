@@ -19,4 +19,8 @@ public class Role {
     private Integer id;
     private String name;
     private String authority;
+
+    public Role orElse(Role role) {
+        return role;
+    }
 }

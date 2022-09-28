@@ -34,7 +34,6 @@ public class MyUserDetailsService implements UserDetailsService {
     //将用户名，密码和用户权限传递给springsecurity
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        log.info("==================loadUserByUsername->username={}",username);
         User user = userService.findByUsername(username);
         if(user == null){
             throw new UsernameNotFoundException("用户名不存在");
@@ -42,14 +41,12 @@ public class MyUserDetailsService implements UserDetailsService {
 
         List<GrantedAuthority> authorities = new ArrayList<>();
         Role role = roleService.findById(user.getRoleId());
-        log.info("===============role={}",role);
         if(!StringUtils.isEmpty(role)){
             //用户所拥有的权限 注意：必须以ROLE_开头
-            authorities.add(new SimpleGrantedAuthority("ROLE_"+role.getAuthority()));
-            log.info("========authorities={}",authorities);
+//            authorities.add(new SimpleGrantedAuthority("ROLE_"+role.getAuthority()));
+            authorities.add(new SimpleGrantedAuthority(role.getAuthority()));
         }
 
-        //创建用户信息的时候密码需要加密
-        return new org.springframework.security.core.userdetails.User(user.getUsername(),user.getPassword(),authorities);
+        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
     }
 }
