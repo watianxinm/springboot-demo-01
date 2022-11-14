@@ -1,12 +1,13 @@
 package com.study.demo01web.Controller;
 
+import com.alibaba.druid.util.StringUtils;
 import com.study.demo01web.Pojo.User;
+import com.study.demo01web.Service.MyUserDetailsService;
 import com.study.demo01web.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +22,9 @@ public class LoginController {
 
     @Autowired
     PasswordEncoder passwordEncoder;
+
+    @Autowired
+    MyUserDetailsService myUserDetailsService;
 
     @RequestMapping(value = "/user/login", method = RequestMethod.POST)
     public String doLogin(@RequestParam("username")String username, @RequestParam("password") String password, Model model, HttpSession session){
@@ -38,11 +42,12 @@ public class LoginController {
             if (passwordEncoder.matches(password,user.getPassword())) {
                 // 用户名和密码都正确
                 session.setAttribute("username",username);
-                session.getAttribute("username");
+//                session.getAttribute("username");
                 return "redirect:/emps";
             } else {
                 // 用户存在但是输入的密码不正确
                 model.addAttribute("msg", "密码不正确，请重新输入");
+                model.getAttribute("msg");
                 // 返回到登录页面
                 return "login";
             }
