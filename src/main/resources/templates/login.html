@@ -17,6 +17,10 @@
             <!--如果msg的值为空，则不显示消息-->
             <p th:text="${msg}" th:unless="${#strings.isEmpty(msg)}"></p>
         </div>
+<!--        <div class="remberme">-->
+<!--            <input id="remeberme" type="checkbox" name="remeberme">-->
+<!--            <span style="color: orange">记住我</span>-->
+<!--        </div>-->
         <div class="form-item"><button id="submit" th:text="#{login.btn}">sign in</button></div>
         <div class="reg-bar">
             <a class="reg" th:text="#{login.register}">Sign up right away</a>

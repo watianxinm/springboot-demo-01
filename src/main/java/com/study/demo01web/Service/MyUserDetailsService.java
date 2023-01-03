@@ -36,7 +36,6 @@ public class MyUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userService.findByUsername(username);
         if(user == null){
-
             throw new UsernameNotFoundException("用户名不存在");
         }
 
@@ -44,8 +43,7 @@ public class MyUserDetailsService implements UserDetailsService {
         Role role = roleService.findById(user.getRoleId());
         if(!StringUtils.isEmpty(role)){
             //用户所拥有的权限 注意：必须以ROLE_开头
-            authorities.add(new SimpleGrantedAuthority("ROLE_"+role.getAuthority()));
-//            authorities.add(new SimpleGrantedAuthority(role.getAuthority()));
+            authorities.add(new SimpleGrantedAuthority(role.getAuthority()));
         }
 
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);

@@ -23,9 +23,6 @@ public class LoginController {
     @Autowired
     PasswordEncoder passwordEncoder;
 
-    @Autowired
-    MyUserDetailsService myUserDetailsService;
-
     @RequestMapping(value = "/user/login", method = RequestMethod.POST)
     public String doLogin(@RequestParam("username")String username, @RequestParam("password") String password, Model model, HttpSession session){
         if (StringUtils.isEmpty(username)) {

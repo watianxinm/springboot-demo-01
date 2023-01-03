@@ -67,4 +67,10 @@ public class Demo01WebApplicationTests {
         System.out.println(decodedJWT.getExpiresAt().getTime());
     }
 
+    @Test
+    public void testDemo(){
+        String a = "11";
+        String b = new String("22");
+        System.out.println(a.equals(b));
+    }
 }

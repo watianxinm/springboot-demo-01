@@ -37,11 +37,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .successForwardUrl("/emps") //进行路径跳转的方式为转发(forward)
                 .defaultSuccessUrl("/emps") //进行路径跳转的方式为重定向(redirect)
                 .permitAll();
-        http.csrf().disable(); //springsecurity在开启csrf防护的情况下，/logout必须是以POST方法提交，而<a>请求是GET方法，会报404
+
+        http
+                .csrf()
+                .disable(); //springsecurity在开启csrf防护的情况下，/logout必须是以POST方法提交，而<a>请求是GET方法，会报404
+
         http
                 .logout() //用户退出登录
                 .logoutUrl("/user/logout") //logoutFilter要读取的URL，也就是指定springsecurity拦截的注销url
                 .logoutSuccessUrl("/login.html"); //用户退出后要被重定向的url
+
+//        http.rememberMe().rememberMeParameter("remeberme");
     }
 
     //忽略静态资源的拦截

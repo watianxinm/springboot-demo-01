@@ -19,7 +19,6 @@ public class UserService{
     public User create(User user){
         //密码加密
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        System.out.println(user.getPassword());
         return userMapper.save(user);
     }
     //通过用户名查找用户信息

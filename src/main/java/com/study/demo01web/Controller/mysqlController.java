@@ -47,7 +47,7 @@ public class mysqlController {
 
     @RequestMapping("/deleteValues/{id}")
     public String deleteValues(@PathVariable("id") int id){
-        String sql = "delete from department where id =" +id;
+        String sql = "delete from department where id =" + id;
         jdbcTemplate.update(sql);
         return "delete-ok";
     }

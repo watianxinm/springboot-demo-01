@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extrasspringsecurity5">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -60,25 +61,25 @@
     <!-- 左侧菜单栏目块 -->
     <div class="leftMeun" id="leftMeun">
         <div id="logoDiv">
-            <p id="logoP"><img id="logo" alt="NO.1" th:src="@{images/logo2.jpg}"><span>NO.1</span></p>
+            <p id="logoP">
+                <img id="logo" alt="NO.1" th:src="@{images/logo2.jpg}">
+                <span>这里怎么写</span>
+            </p>
         </div>
         <div id="personInfor">
-            <!--<p id="userName">[[${session.userlogin}]]</p>-->
             <p id="userName" th:value="${session.get(username)}"></p>
+<!--            <p id="userName" sec:authentication="username"></p>-->
             <p>
                 <a th:href="@{/user/logout}"method="">注销登录</a>
             </p>
         </div>
         <div class="meun-title">账号管理</div>
-        <!--<a class="meun-item meun-item-active" th:href="@{/emps}" aria-controls="sour" role="tab"><img-->
-        <!--th:src="@{/images/icon_source.png}">人员管理-->
-        <!--</a>-->
         <div>
             <img th:src="@{/images/icon_source.png}" height="18px" width="18px"/>&nbsp&nbsp&nbsp
             <a class="meun-item meun-item-active" th:href="@{/emps}" aria-controls="sour" role="tab">人员管理</a>
         </div>
-        <div class="meun-item" href="#char" aria-controls="char" role="tab" data-toggle="tab"><img
-                th:src="@{/images/icon_chara_grey.png}">权限管理
+        <div class="meun-item" href="#char" aria-controls="char" role="tab" data-toggle="tab">
+            <img th:src="@{/images/icon_chara_grey.png}">权限管理
         </div>
         <div class="meun-item" href="#user" aria-controls="user" role="tab" data-toggle="tab"><img
                 th:src="@{/images/icon_user_grey.png}">用户管理
